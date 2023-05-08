@@ -1,69 +1,69 @@
-const canvas = document.querySelector('canvas');
-const c = canvas.getContext('2d');
+const canvas = document.querySelector("canvas");
+const c = canvas.getContext("2d");
 
-canvas.width = 1024
-canvas.height = 576
+canvas.width = 1024;
+canvas.height = 576;
 
-c.fillRect(0, 0, canvas.width, canvas.height)
+c.fillRect(0, 0, canvas.width, canvas.height);
 
-const gravity = 0.2
+const gravity = 0.2;
 
 class Sprite {
-    constructor({position, velocity}) {
-        this.position = position
-        this.velocity = velocity
-        this.height = 150
-    }
+  constructor({ position, velocity }) {
+    this.position = position;
+    this.velocity = velocity;
+    this.height = 150;
+  }
 
-    draw() {
-        c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, 50, this.height)
-    }
+  draw() {
+    c.fillStyle = "red";
+    c.fillRect(this.position.x, this.position.y, 50, this.height);
+  }
 
-    update() {
-        this.draw()
-        this.position.y += this.velocity.y
+  update() {
+    this.draw();
+    this.position.y += this.velocity.y;
 
-        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
-            this.velocity.y = 0
-        } else {
-            this.velocity.y += gravity
-        }
+    if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+      this.velocity.y = 0;
+    } else {
+      this.velocity.y += gravity;
     }
+  }
 }
 
 const player = new Sprite({
-    position: {
+  position: {
     x: 0,
-    y: 0
-    },
-    velocity: {
+    y: 0,
+  },
+  velocity: {
     x: 0,
-    y: 10
-  }
-})
+    y: 10,
+  },
+});
 
 const enemy = new Sprite({
-    position: {
+  position: {
     x: 400,
-    y: 100
-    },
-    velocity: {
+    y: 100,
+  },
+  velocity: {
     x: 0,
-    y: 0
-  }
-})
+    y: 0,
+  },
+});
 
-enemy.draw()
+enemy.draw();
 
-console.log(player)
+console.log(player);
 
 const animate = () => {
-    requestAnimationFrame(animate)
-    c.fillStyle = 'black'
-    c.fillRect(0, 0, canvas.width, canvas.height)
-    player.update()
-    enemy.update()
-}
+  requestAnimationFrame(animate);
+  c.fillStyle = "black";
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  player.update();
+  enemy.update();
+};
 
-animate()
+animate();
