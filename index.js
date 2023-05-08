@@ -40,7 +40,7 @@ const player = new Sprite({
     velocity: {
     x: 0,
     y: 10
-    }
+  }
 })
 
 const enemy = new Sprite({
@@ -51,7 +51,7 @@ const enemy = new Sprite({
     velocity: {
     x: 0,
     y: 0
-    }
+  }
 })
 
 enemy.draw()
