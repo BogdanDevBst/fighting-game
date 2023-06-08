@@ -1,3 +1,3 @@
-# fighting-game
+# fighting-game tutorial
 
 ## WIP ==========///
